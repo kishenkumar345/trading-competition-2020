@@ -108,4 +108,39 @@ Hedging well enables you to under-pay to transfer risk to another party and can 
 
 ## Risk-Weighted Returns
 
+If you play a game multiple times, you can model your expected winnings in the following way:
 
+* Your probability of winning the game is called p.
+* Your probability of losing is therefore 1-p, which we call q.
+* Your winnings when you win are called W
+* Your losses when you lose, we call L
+
+Then your expected winnings are:
+
+E_w = p * W
+
+and your expected losses are:
+
+E_l = q * L
+
+So your risk-weighted return is:
+
+E = p * W - q * L
+
+### Some examples
+
+Let's say you are paying $1 to play a game.  The game involves a coin-flip of a fair coin.  You win $2 if the coin is heads, and nothing if tails.
+
+So, p = q  = 0.5
+
+Your winnings when you win, are $1.  Since you earn $2 but you paid $1 to play.
+
+Your losses when you lose are also $1, since you pay $1 to play but earn nothing.
+
+So your risk-weighted returns are E = 0.5 * 1 - 0.5 * 1 = 0.  In the long-run, you'd expect to earn nothing from this game.
+
+What you often find, is that when you try to increase p, you end up increasing L as well.  Or trying to increase W may increase L or decrease p.
+
+Or if you try to decrase L or q, you often end up decreasing W.
+
+The goal however, is to trade a smaller loss for a bigger gain.
