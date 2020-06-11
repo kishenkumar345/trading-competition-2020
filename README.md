@@ -40,7 +40,7 @@ If you don't have lots and lots of other sellers in the marketplace, you end up 
 
 An interesting example of this is the copper-man, who attempted to control the entire world's supply of copper in order to charge above it's real value to make money.
 
-Ultimately his attempt to create a monopoly failed, but it's an interesting example nonetheless - https://en.wikipedia.org/wiki/Sumitomo_copper_affair
+Ultimately his attempt to create a monopoly failed, but it's [an interesting example nonetheless](https://en.wikipedia.org/wiki/Sumitomo_copper_affair)
 
 You can also flip it the other way, if you are the only person purchasing in a market place, you can push the price down.  Supermarkets do this well to bully their suppliers on price, since they purchase the majority of milk for example, the farmers have little choice but to accept whatever price they are offered by the supermarkets
 
@@ -55,4 +55,57 @@ Of course, if there are high barriers to entry into this market place (either la
 ## Some example strategies
 
 So now I will cover some examples of strategies you could use to take advantage of these things, in some different markets
+
+### Arbitrage
+
+Arbitrage is taking advantage of asymmetry of information mainly.  You operate in two markets, where you can buy in one market and sell in another.
+
+The people in the first market do not realise that there is another market they could be trading in and getting a better price.
+
+Ultimately this is what merchants do.  They buy from one country, transport the goods to another country, and sell at a profit.
+
+### Value Investing
+
+This is another manipulation of asymmetry of information.  Due to market perceptions at a particular moment in time, an asset may be underpriced.
+
+It may be a company that has excellent long-term prospects, good growth, but for some reason the majority of people have decided that the company actually is not doing that well and so are selling their stock.
+
+If you are one of the few people that have realised this, you can be buying the stock cheaply.
+
+Later on, when the company continues to grow, and the doomsday scenario that everyone was expecting never occurs, then suddenly everyone realises you were right and starts buying back up the stock.
+
+Now the price goes up and you can cash in and take your profit.
+
+### Speculation / Momentum Trading
+
+Under normal circumstances, prices change due to a change in economic prospects.
+
+Let's say a small company lands a large contract, it is now significantly more valuable as an enterprise compared to before.
+
+Or let's say a drought hits and destorys crops, now the remaining crop commodities are more valuable due to forces of supply and demand.
+
+However, this change in price my cause an increased interest in the asset, and buyers may move into the market.  Other people, noticing that others had made a profit from the price rise, may decide to enter the market also.
+
+This further stimulates interest and the price goes up, not because the underlying asset is more valuable, but the price rises because the price has risen.
+
+As more and more speculators enter the market, the price rises ever higher, creating what is known as a 'bubble', which eventually bursts when everyone realises that the price has deviated way too far from the true value of the underlying asset.
+
+A good example of this are [Trading sardines](https://www.advisorperspectives.com/commentaries/2019/03/27/trading-sardines)
+
+Another interesting example of this is a [short-squeeze](https://en.wikipedia.org/wiki/Short_squeeze#:~:text=A%20short%20squeeze%20is%20a,covering%20(liquidating)%20their%20positions), which happened last year to the Tesla Stock
+
+### Hedging
+
+This is usually combined with another stratgey.  It's a method of risk-transfer (see the section on risk-weighted returns) where you either take short-positions or futures contracts to trade risk.
+
+By buying or selling risk to other parties, but hopefully at a better price than the risk is worth, you can increase your risk-weighted returns.
+
+Insurance is a good example of this.  If you buy a car for $10,000 and an insurance provider is offering insurance of $1 per year, then they are pricing the risk way too low.
+
+You can pay to transfer that risk to them much to your benefit.  If another insurer was charging $5,000 for the year, then they would likely benefit.
+
+Hedging well enables you to under-pay to transfer risk to another party and can increase your risk-weighted returns.
+
+## Risk-Weighted Returns
+
 
