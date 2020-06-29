@@ -1,10 +1,6 @@
 # accountId: U2686250
 require 'typhoeus'
 require 'json'
-require 'capybara'
-require 'capybara/dsl'
-require 'selenium-webdriver'
-require './config'
 
 # Add some nice colours to the console
 class String
@@ -33,85 +29,19 @@ class String
   def reverse_color;  "\e[7m#{self}\e[27m" end
 end
 
-# Load env file
-$config = Config.build("./.env")
 
-# Setup the Capybara login
-Capybara.register_driver :selenium do |app|
-  Capybara::Selenium::Driver.new(app, browser: :chrome)
-end
 
-Capybara.register_driver :headless_selenium do |app|
-  options = Selenium::WebDriver::Chrome::Options.new
-  options.add_argument('--headless')
-  capabilities = Selenium::WebDriver::Remote::Capabilities.chrome(
-    chromeOptions: {
-      args: %w[headless enable-features=NetworkService,NetworkServiceInProcess]
-    }
-  )
-  Capybara::Selenium::Driver.new app,
-    browser: :chrome,
-    options: options,
-    desired_capabilities: capabilities
-end
-
-Capybara.configure do |c|
-  c.run_server = false
-  c.default_driver = :selenium
-  c.app_host = $config.get("APP_HOST")
-end
-
-# Wrapper class to manage Chrome
-class HeadlessBrowser 
-  include Capybara::DSL
-
-  def initialize
-    @short_wait = 0.5
-    @medium_wait = 5
-    @long_wait = 10
-    @username = $config.get("IB_USERNAME")
-    @password = $config.get("IB_PASSWORD")
-  end
-
-  ##Waiting
-  def wait_for_a_little
-    sleep @short_wait
-  end
-  def wait_a_second
-    sleep 1
-  end
-  def wait_a_while
-    sleep @medium_wait
-  end
-  def wait_ages
-    sleep @long_wait
-  end
-
-  def login
-    visit ('/')
-    wait_a_second
-    begin
-      fill_in :placeholder => "Username", :with => @username
-      fill_in :placeholder => "Password", :with => @password
-      click_button("Login")
-    rescue
-      return false
-    end
-    wait_a_second
-    return true if page.body.include? "Client login succeeds"
-    false
-  end
-
-  def close
-    page.driver.browser.close
-  end
-
-end
 
 class InteractiveBrokerApi
 
-  BASE_URL = "#{$config.get("APP_HOST")}/v1/portal"
-  SSO_URL = "#{$config.get("APP_HOST")}/sso/Login?forwardTo=22&RL=1&ip2loc=US"
+  BASE_URL = ""
+  SSO_URL = ""
+
+  def initialize(config)
+    @config = config
+    BASE_URL.replace "#{@config.get("APP_HOST")}/v1/portal"
+    SSO_URL.replace "#{@config.get("APP_HOST")}/sso/Login?forwardTo=22&RL=1&ip2loc=US"
+  end
 
   def call_api(method: "get", url:, data: nil)
     full_url = BASE_URL + url
@@ -137,7 +67,7 @@ class InteractiveBrokerApi
 
   def ping_server
     puts "Pinging Server".green
-    puts call_api(method: 'post', url: '/tickle')
+    call_api(method: 'post', url: '/tickle')
   end
 
   def login
@@ -197,6 +127,15 @@ class InteractiveBrokerApi
     data.each do |trade|
       puts trade.to_s 
     end
+  end
+
+  # Need to implement this still
+  def buy(ticker, position)
+    puts "Buying #{ticker}"
+  end
+
+  def sell(ticker, position)
+    puts "Selling #{ticker}"
   end
   
 end

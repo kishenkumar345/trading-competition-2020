@@ -1,5 +1,6 @@
 require 'typhoeus'
 require 'date'
+require 'nokogiri'
 
 # Add time methods to Integer class, to allow us to subtract days
 class Integer
@@ -39,16 +40,32 @@ class YahooDataPoint
 
 end
 
-def get_stock_data(ticker, date_from, date_to, frequency = "1d")
-  url = "https://query1.finance.yahoo.com/v7/finance/download/#{ticker}?period1=#{date_from.strftime("%s")}&period2=#{date_to.strftime("%s")}&interval=#{frequency}&events=history"
+class YahooApi
 
-  request = Typhoeus::Request.new(url)
-  request.run
-  result = request.response.body
+  def initialize(config)
+    @config = config
+  end
 
-  result.split("\n").drop(1).map { |row| YahooDataPoint.new(row) }
+  def get_historic_stock_data(ticker, date_from, date_to, frequency = "1d")
+    url = "https://query1.finance.yahoo.com/v7/finance/download/#{ticker}?period1=#{date_from.strftime("%s")}&period2=#{date_to.strftime("%s")}&interval=#{frequency}&events=history"
+
+    request = Typhoeus::Request.new(url)
+    request.run
+    result = request.response.body
+
+    result.split("\n").drop(1).map { |row| YahooDataPoint.new(row) }
+  end
+
+  def get_latest_price(ticker)
+    url = "https://finance.yahoo.com/quote/#{ticker}"
+
+    request = Typhoeus::Request.new(url)
+    request.run
+    result = request.response.body
+
+    html_doc = Nokogiri::HTML(result)
+
+    # This might have to be tweaked a bit
+    html_doc.css('[data-test="BID-value"]').css('span').children.to_s.split("x").first.to_f
+  end
 end
-
-# Note that you could get higher frequency, like split by minutes, or split by hours etc.
-# Just gotta be careful with TimeZones, since US Exchanges are in different TimeZone so today in NZ, sometimes refers to previous day in US or other TimeZones
-puts get_stock_data("AAPL", Time.now - 14.days, Time.now)
