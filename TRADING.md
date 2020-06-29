@@ -4,7 +4,10 @@ Some basic trading tips are described here for your information.  You are encour
 
 ## Menu
 
+[License](LICENSE)
+
 [Main Readme](README.md)
+
 [IB Client Portal](IB-CLIENT-PORTAL.md)
 
 ## Overview

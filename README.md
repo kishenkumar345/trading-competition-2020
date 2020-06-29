@@ -1,10 +1,15 @@
 # Trading Competition 2020
 
-Seed repository for the trading competition, with some example projects you can use to get started/
+Seed repository for the trading competition, with some example projects you can use to get started.
+
+You must fork this repo to enter the competition, and use the same license in the forked repo to be eligible.
 
 ## Menu
 
+[License](LICENSE)
+
 [Trading Tips](TRADING.md)
+
 [IB Client Portal](IB-CLIENT-PORTAL.md)
 
 ## Overview

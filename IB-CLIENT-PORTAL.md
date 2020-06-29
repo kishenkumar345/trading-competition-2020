@@ -4,7 +4,10 @@ Some basic information about how to use the IB Client Portal.
 
 ## Menu
 
+[License](LICENSE)
+
 [Main Readme](README.md)
+
 [Trading Tips](TRADING.md)
 
 ## Overview
