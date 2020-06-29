@@ -1,0 +1,81 @@
+<html>
+  <head> 
+    <title>IB Gateway</title>
+    <link rel="stylesheet" href="/vue/bulma.min.css" />
+    <script src="/vue/vue.js"></script>
+  </head>
+
+  <body>
+    <div  id="vueMain">
+      <!-- Title -->
+      <section class="section" :class="{ 'has-background-primary': connectedToApi, 'has-background-warning': !connectedToApi }">
+        <div class="container">
+          <h1 class="title has-text-centered"> Gembot Interactive Broker Gateway</h1>
+          Connected: {{ connectedToApi }}
+        </div>
+      </section>
+      <!-- Accounts -->
+      <section class="section">
+        <div class="container">
+          <div class="content">
+            <div class="is-size-3"> Active Accounts:</div>
+            <table class="table is-fullwidth">
+              <thead>
+                <th> Account ID </th>
+                <th> Currency </th>
+                <th> Account Type </th>
+                <th> Cash Balance </th>
+                <th> Asset Value </th>
+                <th> </th>
+              </thead>
+              <tbody>
+                <tr v-for="(account, index) in accounts" :key="index">
+                  <td> {{ account.id }} </td>
+                  <td> {{ account.information.currency }} </td>
+                  <td> {{ account.information.type }} </td>
+                  <td> {{ account.ledger.BASE.cashbalance }} </td>
+                  <td> {{ account.ledger.BASE.stockmarketvalue }} </td>
+                  <td> <button class="button is-fullwidth" @click="getTrades(account)"> Get Trades </button>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+      <!-- Trades -->
+      <section class="section has-background-danger" v-if="getTradesError !== null">
+        <div class="container">
+          <div class="content">
+            <div class="is-size-2"> Error Fetching Trades: </div>
+            <div class="is-size-5"> {{ getTradesError }} </div>
+          </div>
+        </div>
+      </section>
+      <section class="section">
+        <div class="container">
+          <div class="content">
+            <div class="is-size-3"> Trades for account ({{ activeAccountId }}):</div>
+            <table class="table is-fullwidth">
+              <thead>
+                <th> </th>
+              </thead>
+              <tbody>
+                <tr v-for="(trade, index) in trades" :key="index">
+                  <td> {{ trade }} </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+    </div>
+    <!-- Load the Vue App -->
+    <script src="/vue/scripts.js">
+    </script>
+    <script>
+      window.onload = function () { 
+        runApp();
+      }
+    </script
+  </body>
+</html>

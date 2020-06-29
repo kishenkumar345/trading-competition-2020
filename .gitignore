@@ -1,0 +1,4 @@
+ib-client-portal/.env
+ib-client-portal/logs
+**/**.DS_Store
+**/**.env
