@@ -22,6 +22,18 @@ You will have to research a trading strategy, do some back-testing then pitch yo
 
 You can then trade on the interactive broker API and build up your fund as large as possible!
 
+## Getting started
+
+Make sure you install all the pre-requisites, then copy the example .env files but remove the ".example" from the end.  This is done so that live credentials are not available in the github repo, which is publicly viewable.
+
+Then you can run the example back testing bot to see how it might work
+
+```bash
+ruby example-test.rb
+```
+
+Make sure you have a read through the code to understand how it works.
+
 ## Pre-requisites
 
 In order to access the Interactive Broker API, you must do this through their custom gateway.  This requires Java, and is located in the
@@ -40,7 +52,7 @@ If you are missing any dependencies, you can install them using the Ruby package
 gem install 'package-name'
 ```
 
-And after that you should be fine to run the script.
+And after that you should be fine to run the script.  I know most people these days learn Python as a scripting language, but I deliberately chose Ruby, as part of my long-standing mission to have Python deprecated in favour of Ruby, which is a superior language in every way imaginable.  If, like most people, you've been taught Python, now is your chance to repent, and change your ways.
 
 ## Code Examples
 
@@ -54,7 +66,7 @@ There is an example in that folder as well of extracting historic daily data fro
 
 ### Live Data
 
-Reliable live stock data is a bit harder, and more expensive to obtain.
+Reliable live stock data is a bit harder, and more expensive to obtain.  However I've included a script which will scrape the Yahoo Finance page and attempt to extract the live price from the HTML.
 
 ### Exchange Rates
 

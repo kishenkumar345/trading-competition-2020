@@ -1,16 +1,6 @@
 require 'typhoeus'
 require 'json'
-
-# Add time methods to Integer class, to allow us to subtract days
-class Integer
-  def day 
-    86400 * self
-  end
-
-  def days
-    86400 * self
-  end
-end 
+require 'lib/lib'
 
 # Class to wrap the European Central Bank API
 class EcbApi

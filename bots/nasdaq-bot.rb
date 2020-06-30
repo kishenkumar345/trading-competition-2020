@@ -1,6 +1,4 @@
 
-
-
 class NasdaqBot
 
   def initialize(config, ib_api, yahoo_api)
@@ -14,11 +12,11 @@ class NasdaqBot
     price = @yahoo_api.get_latest_price("AAPL")
     # Buy if cheap enough
     if price < 0.2
-      @ib_api.buy("AAPL", 100)
+      @ib_api.buy("AAPL", 100, price)
     end
     # Sell if expensive enough
     if price > 0.4 
-      @ib_api.sell("AAPL", 100)
+      @ib_api.sell("AAPL", 100, price)
     end
   end
 end

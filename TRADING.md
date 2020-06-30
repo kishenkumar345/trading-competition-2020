@@ -10,16 +10,6 @@ Some basic trading tips are described here for your information.  You are encour
 
 [IB Client Portal](IB-CLIENT-PORTAL.md)
 
-## Overview
-
-The target is to paper-trade on interactive brokers, to make the most money possible before the competition ends.
-
-You can fork this repo, and start testing your ideas and developing a strategy.
-
-You will have to research a trading strategy, do some back-testing then pitch your investment strategy before you can open the paper trading account.
-
-You can then trade on the interactive broker API and build up your fund as large as possible!
-
 ## Basic Market Theory
 
 This repo contains 5 basic strategies.  The ultimate aim of the game is to buy low, sell high.  To do this you will most likely need to purchase some kind of financial security that is likely to go up in value in the near future.

@@ -1,29 +1,24 @@
 require 'typhoeus'
 require 'date'
 require 'nokogiri'
-
-# Add time methods to Integer class, to allow us to subtract days
-class Integer
-  def day 
-    86400 * self
-  end
-
-  def days
-    86400 * self
-  end
-end
+require './lib/lib'
 
 class YahooDataPoint
 
   def initialize(row)
     columns = row.split(",")
-    @date = DateTime.strptime(columns[0], '%Y-%m-%d')
+    # @date = DateTime.strptime(columns[0], '%Y-%m-%d')
+    @date = Time.parse(columns[0])
     @open = columns[1].to_f
     @high = columns[2].to_f
     @low = columns[3].to_f
     @close = columns[4].to_f
     @adjusted_close = columns[5].to_f
     @volume = columns[6].to_i
+  end
+  # Getters
+  def date 
+    @date
   end
   # Diff between high and low point
   def spread
@@ -32,6 +27,9 @@ class YahooDataPoint
   # Get % change
   def spread_ratio
     "#{((@high - @low) / @close * 100).round(2)}%"
+  end
+  def average_price
+    (@high + @low) / 2
   end
   # Convert to string
   def to_s
