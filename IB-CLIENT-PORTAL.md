@@ -79,3 +79,9 @@ ib-example.rb
 ```
 
 which could be run as a background process without a GUI.  I've just given a few random examples of how you could make API calls to the Client Portal.  This could be done better I imagine depending on your requirements.
+
+## Official Documentation
+
+I'll admit that the IB docs are not the greatest, but here they are nonetheless:
+
+(Interactive Broker API Docs)[https://www.interactivebrokers.com/api/doc.html]
