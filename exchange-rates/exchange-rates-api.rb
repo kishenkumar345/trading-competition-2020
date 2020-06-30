@@ -1,6 +1,6 @@
 require 'typhoeus'
 require 'json'
-require 'lib/lib'
+require './lib/lib'
 
 # Class to wrap the European Central Bank API
 class EcbApi
