@@ -84,4 +84,4 @@ which could be run as a background process without a GUI.  I've just given a few
 
 I'll admit that the IB docs are not the greatest, but here they are nonetheless:
 
-(Interactive Broker API Docs)[https://www.interactivebrokers.com/api/doc.html]
+[Interactive Broker API Docs](https://www.interactivebrokers.com/api/doc.html)
